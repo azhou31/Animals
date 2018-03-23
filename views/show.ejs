@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animal Information</title>
+</head>
+<body>
+    <h3><%= animal.name %> Information</h3>
+        <form action="/animals/<%= animal._id %>" method="POST">
+            <p>Name: <input type="text" name="name" value="<%= animal.name %>"></p>
+            <p>Strength: <input type="number" name="strength" value="<%= animal.strength %>" min="1" max="10"></p>
+            <p><input type="submit" value="Update"></p>
+        </form>
+    <a href="/"><button type="button" name="button">Go Back</button></a>
+</body>
+</html>

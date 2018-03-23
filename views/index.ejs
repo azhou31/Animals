@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose Dashboard</title>
+</head>
+<body>
+    <h2>Animals</h2>
+    <h3>Add a New Animal</h3>
+        <form action="/animals" method="POST">
+            <p>Name of Animal: <input type="text" name="name"></p>
+            <p>Strength: <input type="number" name="strength" min="1" max="10"></p>
+            <p><input type="submit" value="Add"></p>
+        </form>
+
+    <h3>List of Animals</h3>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Strength</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                    <% for (var i=0; i<animal.length; i++) {%>
+                 <tr>
+                    <td><%= animal[i].name %></td>
+                    <td><%= animal[i].strength %></td>    
+                    <td><a href="/animals/<%= animal[i]._id %>">Show</a>
+                    <form action="/animals/destroy/<%= animal[i]._id %>" method="POST">
+                        <input type="submit" value="Delete"></form></td>
+                </tr>
+                <% } %> 
+            </tbody>
+        </table>
+</body>
+</html>
+
